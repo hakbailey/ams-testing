@@ -1,0 +1,14 @@
+---
+- name: Test creating an artifact
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create artifact
+      hebailey.utils.artifact:
+        name: test-artifact
+        path: ./testfile.txt
+      register: result
+
+    - name: Debug
+      ansible.builtin.debug:
+        msg: "{{ result }}"
